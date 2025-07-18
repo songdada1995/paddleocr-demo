@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings
+import os
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "PaddleOCR Service"
@@ -17,6 +18,6 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     class Config:
-        env_file = ".env"
+        env_file = f".env.{os.getenv('ENV', 'development')}" if os.path.exists(f".env.{os.getenv('ENV', 'development')}") else ".env"
 
 settings = Settings()

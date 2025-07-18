@@ -8,8 +8,11 @@ pip install pymysql
 
 pip install pytz
 
+python pre_start.py
+
 启动
 
+set ENV=development
 uvicorn main:app --reload
 
 
