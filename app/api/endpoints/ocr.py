@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, File, UploadFile, HTTPException
+from fastapi import APIRouter, Depends, File, UploadFile, HTTPException, Security
+from fastapi.security import HTTPAuthorizationCredentials
 from app.models.client import Client
 from app.api import deps
 from app.services import ocr_service
@@ -7,7 +8,8 @@ router = APIRouter()
 
 @router.post("/recognize")
 def recognize_text(
-    *, 
+    *,
+    credentials: HTTPAuthorizationCredentials = Security(deps.bearer_scheme),
     current_client: Client = Depends(deps.get_current_client),
     file: UploadFile = File(...)
 ):
