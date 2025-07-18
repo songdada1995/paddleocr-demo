@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+python-multipart
+paddlepaddle
+paddleocr
+mysql-connector-python
+passlib[bcrypt]
+python-jose[cryptography]
