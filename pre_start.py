@@ -37,7 +37,7 @@ def init_db(db: Session) -> None:
             hashed_secret = get_password_hash(CLIENT_SECRET)
             client_in = Client(
                 client_id=CLIENT_ID,
-                hashed_client_secret=hashed_secret,
+                hashed_secret=hashed_secret,
                 is_active=True
             )
             db.add(client_in)

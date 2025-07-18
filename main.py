@@ -10,7 +10,8 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    openapi_url=f"{settings.API_V1_STR}/openapi.json"
+    # openapi_url=f"{settings.API_V1_STR}/openapi.json"  # 注释掉自定义openapi_url
+    # 保持默认即可，docs和redoc才能正常
 )
 
 @app.on_event("startup")
